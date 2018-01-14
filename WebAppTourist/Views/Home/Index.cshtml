@@ -4,42 +4,19 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <script src="~/js/site.js" asp-append-version="true"></script>
     <meta charset="utf-8" />
- 
+    <title>WebAppTourist</title>
 
-    <title>JavaScript</title>
 </head>
 <body>
     <div id="map"></div>
 
     <div class="div">
-        <input type="button" onclick="adds()" class="button" value="Build Route">
-        <input type="button" onclick="subs()" class="button" value="Next Route">
+        <input type="button" class="button" value="Build Route">
+        <input type="button" class="button" value="Next Route">
         <input type="button" class="button" value="My location">
     </div>
 
-    <script>
-        var map;
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 13,
-                center: { lat: 47.234524, lng: 38.884903 },
-                mapTypeId: 'terrain'
-            });
-        }
-    </script>
-
-
-
-
-    
-
-
-
-
-
-
-
-
+ 
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjUfDf5v52pKGCIKhBqlSW9IQZV3lcRJw &callback=initMap"
             async defer></script>

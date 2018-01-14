@@ -1,13 +1,27 @@
 ﻿// Write your JavaScript code.
-var s = 0;
-function adds() {
-    s++;
-    alert(s);
-    
+
+var map;
+
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 13,
+        center: { lat: 47.234524, lng: 38.884903 },
+        mapTypeId: 'terrain'
+    });
+
+    map.addListener('click', function (e) {
+        placeMarkerAndPanTo(e.latLng, map);
+    });
 }
 
-function subs() {
-    s--;
-    alert(s);
+
+
+function placeMarkerAndPanTo(latLng, map) {
+    var marker = new google.maps.Marker({
+        position: latLng,
+        map: map,
+        title: String(latLng.lat()) + ' ' + String(latLng.lng())
+    });
+    map.panTo(latLng);
 }
 
