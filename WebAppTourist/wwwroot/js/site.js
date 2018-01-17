@@ -1,6 +1,4 @@
-﻿// Write your JavaScript code.
-
-var map;
+﻿var map;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -12,6 +10,7 @@ function initMap() {
     map.addListener('click', function (e) {
         placeMarkerAndPanTo(e.latLng, map);
     });
+    displayMessage();
 }
 
 
@@ -19,9 +18,13 @@ function initMap() {
 function placeMarkerAndPanTo(latLng, map) {
     var marker = new google.maps.Marker({
         position: latLng,
-        map: map,
-        title: String(latLng.lat()) + ' ' + String(latLng.lng())
+        map: map
+
     });
     map.panTo(latLng);
 }
 
+function displayMessage() {
+
+    alert('asdasdasd');
+}

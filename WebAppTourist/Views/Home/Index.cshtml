@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model List<Attraction>
+
+<!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="~/css/site.css" />
@@ -10,15 +12,18 @@
 <body>
     <div id="map"></div>
 
+
     <div class="div">
-        <input type="button" class="button" value="Build Route">
+        <input type="button" onclick="displayMessage()" class="button" value="Build Route">
         <input type="button" class="button" value="Next Route">
         <input type="button" class="button" value="My location">
     </div>
 
- 
+
+
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjUfDf5v52pKGCIKhBqlSW9IQZV3lcRJw &callback=initMap"
             async defer></script>
+
 </body>
 </html>

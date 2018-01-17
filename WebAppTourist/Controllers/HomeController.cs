@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-
+using WebAppTourist.Models;
 
 namespace WebAppTourist.Controllers
 {
@@ -12,7 +12,10 @@ namespace WebAppTourist.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            DBToutisrContext db = new DBToutisrContext();
+            List < Attraction > list = db.Attraction.ToList();
+         
+            return View(list);
         }
     }
 }
