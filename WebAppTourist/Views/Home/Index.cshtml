@@ -1,5 +1,4 @@
-﻿@model List<Attraction>
-
+﻿@model List<ContainerRouteAttraction>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,16 +13,33 @@
 
 
     <div class="div">
-        <input type="button" onclick="displayMessage()" class="button" value="Build Route">
+        <input type="button" onclick="showa()" class="button" value="Build Route">
         <input type="button" class="button" value="Next Route">
         <input type="button" class="button" value="My location">
     </div>
 
 
+    <script>
+        function showa()
+        {
+            @foreach (var item in Model)
+            {
+                @foreach (var it in item.attractions)
+                {
+                    @:ShowMarker(getLatLngFromString('@it.CoordinateAt'),'@it.Name','@it.Description', map);
+                }
+
+            }
+        }
+    </script>
 
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjUfDf5v52pKGCIKhBqlSW9IQZV3lcRJw &callback=initMap"
-            async defer></script>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjUfDf5v52pKGCIKhBqlSW9IQZV3lcRJw &callback=initMap "
+            async defer>
+
+    </script>
 
 </body>
 </html>

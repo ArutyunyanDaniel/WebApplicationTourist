@@ -10,10 +10,27 @@ function initMap() {
     map.addListener('click', function (e) {
         placeMarkerAndPanTo(e.latLng, map);
     });
-    displayMessage();
+  
 }
 
+function ShowMarker(latLng, name, description, map) {
 
+   
+    var marker = new google.maps.Marker({
+        position: latLng,
+        map: map,
+        title: name,
+        icon: "/Icon/museum.png"
+    });
+    var infowindow = new google.maps.InfoWindow({
+        content: description
+    });
+
+    marker.addListener('click', function () {
+        infowindow.open(map, marker);
+    });
+
+}
 
 function placeMarkerAndPanTo(latLng, map) {
     var marker = new google.maps.Marker({
@@ -22,9 +39,25 @@ function placeMarkerAndPanTo(latLng, map) {
 
     });
     map.panTo(latLng);
+
+    var infowindow = new google.maps.InfoWindow({
+        content: "Your location."
+    });
+
+    marker.addListener('click', function () {
+        infowindow.open(map, marker);
+    });
 }
 
-function displayMessage() {
 
-    alert('asdasdasd');
+
+function getLatLngFromString(ll) {
+
+    ll = ll.slice(1, -1);
+    var latlng = ll.split(' ')
+    return new google.maps.LatLng(parseFloat(latlng[0]), parseFloat(latlng[1]));
+}
+
+function disMes() {
+    alert('asdasd');
 }
